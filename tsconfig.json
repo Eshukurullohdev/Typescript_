@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    // Fayl joylashuvi
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // JavaScript versiyasi va modul
+    "target": "es6",
+    "module": "es6",
+
+    // Qat’iy tekshiruv
+    "strict": true,
+
+    // Modul import/export mosligi
+    "esModuleInterop": true
+  }
+}
