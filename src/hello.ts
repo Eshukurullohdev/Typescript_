@@ -22,20 +22,52 @@
     
 // })
 
-const input = document.getElementById("taskInput") as HTMLInputElement;
-const btn = document.getElementById("addBtn") as HTMLElement;
-const list = document.getElementById("taskList") as HTMLElement;
+// const input = document.getElementById("taskInput") as HTMLInputElement;
+// const btn = document.getElementById("addBtn") as HTMLElement;
+// const list = document.getElementById("taskList") as HTMLElement;
 
-btn.addEventListener("click", () => {
-    const matn = input.value.trim()
+// btn.addEventListener("click", () => {
+//     const matn = input.value.trim()
 
-    if (matn == "") {
-        alert("❌ Iltimos, vazifa kiriting!")
+//     if (matn == "") {
+//         alert("❌ Iltimos, vazifa kiriting!")
+//         return
+//     }
+
+//     const li = document.createElement("li")
+//     li.textContent = matn
+//     list.appendChild(li)
+//     input.value = ""
+// })
+
+const form  = document.getElementById("myForm") as HTMLFormElement;
+const nameInput = document.getElementById("name") as HTMLInputElement;
+const emailInput = document.getElementById("email") as HTMLInputElement;
+const passwordInput = document.getElementById("password") as HTMLInputElement;
+const errorMsg = document.getElementById("error") as HTMLElement;
+
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    errorMsg.textContent = ""
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+    
+
+    if (name.length < 3) {
+        errorMsg.textContent = "❌ Ism kamida 3 ta belgidan iborat bolish kerak"
         return
     }
-
-    const li = document.createElement("li")
-    li.textContent = matn
-    list.appendChild(li)
-    input.value = ""
+    if (!email.includes("@")) {
+        errorMsg.textContent = "❌ Email notogri"
+        return
+    }
+    if (password.length < 6) {
+        errorMsg.textContent = "❌ Parol kamida 6 ta beldigan iborat bolish kerak"
+        return
+    }
+    alert("✅ Form muvaffaqiyatli yuborildi")
+    form.reset()
 })
